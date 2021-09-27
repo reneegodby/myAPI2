@@ -5,7 +5,8 @@ let url = baseURL + key + param;
 // console.log(url)
 
 const randomButton = document.querySelector("button");
- let image = document.querySelector("img").src;
+// const resultDisplay = document.getElementById('displayResults');
+
 
 randomButton.addEventListener("click", getInfo);
 
@@ -13,20 +14,39 @@ randomButton.addEventListener("click", getInfo);
 function getInfo(){
     fetch(url)      // Use fetch() to make the request to the API  
         .then(function(picInfo){        // creates a promise containing a response object called picInfo
-            // console.log(picInfo);
+            // console.log(picInfo);        //fat arrow= .then(picInfo => picInfo.json())
             return picInfo.json(); // Will convert and display result into a json object with picInfo.json() function call
         })
-        .then(function(json){   //json object is used in another promise to send info to another function
-            displayInfo(json);
+        .then(function(json){   //json object is used in another promise to send info to another function displayInfo(json)
+            displayInfo(json);  //fat arrow= .then(json => displayInfo(json))
             
+        })
+        .catch(function(error){     //fat arrow = .catch(error => console.log(error))
+            console.log(error);
         })
 }
 
-function displayInfo(json){
+function displayInfo(json){     //pass in that fetch data to display function
     console.log(json);
 
-   
-        
+    //clear previous data
+    while(randomDate.firstChild){
+        randomDate.removeChild(randomDate.firstChild);
+    }
+
+    while(randomTitle.firstChild){
+        randomTitle.removeChild(randomTitle.firstChild);
+    }
+
+    while(randomDescription.firstChild){
+        randomDescription.removeChild(randomDescription.firstChild);
+    }
+
+    while(randomImg.firstChild){
+        randomImg.removeChild(randomImg.firstChild);
+    }
+
+       
     //create elements for info
     let picTitle = document.createElement('h3');
     let picDate = document.createElement('h6');
@@ -34,29 +54,22 @@ function displayInfo(json){
     let picExplanation = document.createElement('p');
 
     //give elements json data
-    
     picTitle.innerText = json[0].title;
     picDate.innerText = json[0].date;
+    picImage.src = json[0].hdurl;
+    picImage.alt = "Astronomy image";
     picExplanation.innerText = json[0].explanation;
 
 
     //append elements to divs
-    
     randomDate.appendChild(picDate);
     randomTitle.appendChild(picTitle);
     randomDescription.appendChild(picExplanation);
     randomImg.appendChild(picImage);
 
 
-
-    // let imgLink = json.url;  // creating a variable to pull the docs objects out of the API arrays
-    // pic.src = imgLink;  //set source of html image to variable
-    // pic.alt = 'random picture from NASA'
-    // let imgLink = json[0].url;
-    // pic.src = imgLink;
-    
 }
-  displayInfo()
+
 
 
 
