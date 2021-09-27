@@ -21,8 +21,8 @@ function getInfo(){
             displayInfo(json);  //fat arrow= .then(json => displayInfo(json))
             
         })
-        .catch(function(error){     //fat arrow = .catch(error => console.log(error))
-            console.log(error);
+        .catch(function(err){     //fat arrow = .catch(err => console.log(err))
+            console.log(err);
         })
 }
 
@@ -46,10 +46,10 @@ function displayInfo(json){     //pass in that fetch data to display function
         randomImg.removeChild(randomImg.firstChild);
     }
 
-       
+           
     //create elements for info
     let picTitle = document.createElement('h3');
-    let picDate = document.createElement('h6');
+    let picDate = document.createElement('h4');
     let picImage = document.createElement('img');
     let picExplanation = document.createElement('p');
 

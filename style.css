@@ -1,0 +1,53 @@
+body{
+    background-image:url(./assets/stock-vector-star-universe-background-stardust-in-deep-universe-milky-way-galaxy-vector-illustration-1907210152.jpg);
+}
+
+h1{
+    text-align: center;
+    color: white;
+}
+
+img {
+    height: 60vh;
+    width: 50vw;
+    margin: auto;
+    margin-top: 10vh;
+    object-fit: cover;
+    margin-left: 5vw;
+
+}
+
+
+#row {
+    display: flex;
+    flex-direction: row;
+}
+
+#text {
+    color: white;
+    text-align: justify;
+    margin-right: 5vw;
+    margin-left: 5vw;
+    margin-top: 10vh;
+
+        
+    
+}
+
+p {
+    line-height: 1.5;
+    
+    
+}
+
+button {
+    margin: auto;
+    display: flex;
+    
+}
+
+h4{
+
+    
+}
+
