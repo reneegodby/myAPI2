@@ -48,17 +48,20 @@ function displayInfo(json){     //pass in that fetch data to display function
 
            
     //create elements for info
+ 
     let picTitle = document.createElement('h3');
     let picDate = document.createElement('h4');
     let picImage = document.createElement('img');
     let picExplanation = document.createElement('p');
 
     //give elements json data
-    picTitle.innerText = json[0].title;
-    picDate.innerText = json[0].date;
-    picImage.src = json[0].hdurl;
+    picTitle.innerText = `TITLE: ${json[0].title}`;
+    picDate.innerText = `DATE IMAGE WAS CAPTURED: ${json[0].date}`;
+    // let newDate = new Date(json[0].date).toString().substring();
+    // let picDate= newDate;
+    picImage.src = json[0].url;
     picImage.alt = "Astronomy image";
-    picExplanation.innerText = json[0].explanation;
+    picExplanation.innerText = `DESCRIPTION: ${json[0].explanation}`;
 
 
     //append elements to divs
