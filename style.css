@@ -1,7 +1,17 @@
 body{
-    background-image:url(./assets/shutterstock_1907210152\.png);
+    /* background-image:url(./assets/shutterstock_1907210152\.png); */
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+    
+}    
 
+#background {
+    min-height: 100%;
+    width: 100%;
+    background-size: 100%;
+    background-repeat: repeat;
+    background-color: #000;
+    top: -50%;
 }
 
 h1{

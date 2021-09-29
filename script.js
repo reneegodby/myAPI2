@@ -5,10 +5,9 @@ let url = baseURL + key + param;
 // console.log(url)
 
 const randomButton = document.querySelector("button");
-// const resultDisplay = document.getElementById('displayResults');
 
+randomButton.addEventListener("click", (getInfo));
 
-randomButton.addEventListener("click", getInfo);
 
 //FETCH
 function getInfo(){
@@ -19,7 +18,7 @@ function getInfo(){
         })
         .then(function(json){   //json object is used in another promise to send info to another function displayInfo(json)
             displayInfo(json);  //fat arrow= .then(json => displayInfo(json))
-            
+            randomButton.innerText = "Show me another!";
         })
         .catch(function(err){     //fat arrow = .catch(err => console.log(err))
             console.log(err);
@@ -55,10 +54,9 @@ function displayInfo(json){     //pass in that fetch data to display function
     let picExplanation = document.createElement('p');
 
     //give elements json data
+    let newDate = new Date(json[0].date).toDateString();
     picTitle.innerText = `TITLE: ${json[0].title}`;
-    picDate.innerText = `DATE IMAGE WAS CAPTURED: ${json[0].date}`;
-    // let newDate = new Date(json[0].date).toString().substring();
-    // let picDate= newDate;
+    picDate.innerText = `DATE IMAGE WAS CAPTURED: ${newDate}`;
     picImage.src = json[0].url;
     picImage.alt = "Astronomy image";
     picExplanation.innerText = `DESCRIPTION: ${json[0].explanation}`;
